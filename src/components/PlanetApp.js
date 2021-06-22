@@ -1,5 +1,4 @@
+import { Header } from "./Header";
 export const PlanetApp = () => {
-    return (
-        <h1>Hello</h1>
-    )
-}
+  return <Header />;
+};
