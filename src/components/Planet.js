@@ -15,16 +15,16 @@ export const Planet = ({ name, rotation, climate, gravity, created, url }) => {
     }
     return (
         <>
-            <li>
+            <li className="planet__container">
                 <div className="planet__body">
-                    <p className="planet__body--data">name: {capitalizeData(name)}</p>
-                    <p className="planet__body--data">rotation: {rotation}</p>
-                    <p className="planet__body--data">climate: {capitalizeData(climate)}</p>
+                    <p className="planet__body--data"><b>Name:</b> {capitalizeData(name)}</p>
+                    <p className="planet__body--data"><b>Rotation:</b> {rotation === "unknown" ? "No Data" : rotation}</p>
+                    <p className="planet__body--data"><b>Climate:</b> {climate === "unknown" ? "No Data" : capitalizeData(climate)}</p>
                 </div>
                 <div className="planet__body">
-                    <p className="planet__body--data">gravity: {gravity}</p>
-                    <p className="planet__body--data">created: {dateFormater(created)}</p>
-                    <a className="planet__body--link" href={url}>Visit Planet Page</a>
+                    <p className="planet__body--data"><b>Gravity:</b> {gravity === "unknown" ? "No Data" : gravity}</p>
+                    <p className="planet__body--data"><b>Created:</b> {dateFormater(created)}</p>
+                    <a className="planet__body--link" href={url}><b>Planet Page</b></a>
                 </div>
             </li>
         </>

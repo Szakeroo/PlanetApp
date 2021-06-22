@@ -4,7 +4,7 @@ import { Loading } from "./Loading";
 import { PlanetList } from "./PlanetList";
 export const PlanetsContext = createContext()
 export const PlanetApp = () => {
-    const APILINK = "https://swapi.dev/api/planets"
+    const APILINK = "https://swapi.dev/api/planets/?page=1"
     const [currentData, setCurrentData] = useState({
         next: "",
         previous: "",

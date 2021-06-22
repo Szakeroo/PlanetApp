@@ -1,0 +1,32 @@
+.planet__body {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  
+}
+.planet__body--data {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+}
+.planet__body--link {
+  text-decoration: none;
+  margin-right: 30px;
+}
+.planet__container {
+  width: 100%;
+}
+.planet__container{
+    &:nth-child(odd){
+        background-color: $first-blue-color;
+    }
+    &:nth-child(even) {
+        background-color: $second-blue-color;
+    }
+    
+}
+
