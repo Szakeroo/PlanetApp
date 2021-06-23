@@ -24,7 +24,7 @@ export const PlanetApp = () => {
                     const fetchedData = {
                         next: next,
                         previous: previous,
-                        planets: results
+                        planets: results.sort(sortPlanetByName)
                     }
                     setCurrentData(fetchedData)
                     setImmutablePlanets(results)
@@ -32,6 +32,17 @@ export const PlanetApp = () => {
                     alert(error);
                 }
             })
+    }
+    const sortPlanetByName = (planet1, planet2) => {
+        const firstPlanetName = planet1.name.toLowerCase();
+        const secondPlanetName = planet2.name.toLowerCase();
+        let compared = 0;
+        if (firstPlanetName > secondPlanetName) {
+            compared = 1;
+        } else if (firstPlanetName < secondPlanetName){
+            compared = -1;
+        }
+        return compared;
     }
     useEffect(() => {
         getPlanetsData(APILINK);
