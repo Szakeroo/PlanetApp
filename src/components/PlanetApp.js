@@ -33,24 +33,6 @@ export const PlanetApp = () => {
                 }
             })
     }
-    const handlePagination  = (link) => {
-        fetch(link)
-            .then(async response => {
-                try {
-                    const data = await response.json();
-                    const { next, previous, results } = data
-                    const fetchedData = {
-                        next: next,
-                        previous: previous,
-                        planets: results
-                    }
-                    setCurrentData(fetchedData)
-                    setImmutablePlanets(results)
-                } catch (error) {
-                    alert(error);
-                }
-            })
-    }
     useEffect(() => {
         getPlanetsData(APILINK);
     }, [])
@@ -58,8 +40,10 @@ export const PlanetApp = () => {
         <PlanetsContext.Provider value={{ currentData, setCurrentData, immutablePlanets, setImmutablePlanets }}>
             <Header />
             <PlanetList />
-            {isNextPageAvalible && <PaginationButton func={handlePagination} link={currentData.next} text={"Next"} ></PaginationButton >}
-            {isPreviousPageAvalible && <PaginationButton func={handlePagination} link={currentData.previous} text={"Previous"} ></PaginationButton >}
+            <div className="pagination__wrapper">
+            {isPreviousPageAvalible && <PaginationButton func={getPlanetsData} link={currentData.previous} text={"Previous"} ></PaginationButton >}
+            {isNextPageAvalible && <PaginationButton func={getPlanetsData} link={currentData.next} text={"Next"} ></PaginationButton >}
+            </div>
         </PlanetsContext.Provider>
     </>
 };
