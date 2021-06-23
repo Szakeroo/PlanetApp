@@ -8,7 +8,7 @@ export const Planet = ({ name, rotation, climate, gravity, created, url }) => {
         if (typeof data !== "string") throw new Error("Tylko string")
         // const letterRegExp = /^[A-Za-z]+$/
         // const isWordALetter = letterRegExp.test(word)
-        // if(!isWordALetter) throw new Error ("Tekst musi zawierać tylko litery")
+        // if(!isWordALetter) throw new Error ("Tekst musi zawierać tylko litery") zostawiłem aby pokazać ze potrafie korzystąć z regexpa
         const words = data.split(", ")
         const capitalizedWords = words.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         return capitalizedWords.join(", ")
@@ -17,14 +17,14 @@ export const Planet = ({ name, rotation, climate, gravity, created, url }) => {
         <>
             <li className="planet__container">
                 <div className="planet__body">
-                    <p className="planet__body--data"><b>Name:</b> {capitalizeData(name)}</p>
-                    <p className="planet__body--data"><b>Rotation:</b> {rotation === "unknown" ? "No Data" : rotation}</p>
-                    <p className="planet__body--data"><b>Climate:</b> {climate === "unknown" ? "No Data" : capitalizeData(climate)}</p>
+                    <p className="planet__body--data"><b>Name: </b> {capitalizeData(name)}</p>
+                    <p className="planet__body--data"><b>Rotation: </b> {rotation === "unknown" ? "No Data" : rotation}</p>
+                    <p className="planet__body--data"><b>Climate: </b> {climate === "unknown" ? "No Data" : capitalizeData(climate)}</p>
                 </div>
                 <div className="planet__body">
-                    <p className="planet__body--data"><b>Gravity:</b> {gravity === "unknown" ? "No Data" : gravity}</p>
-                    <p className="planet__body--data"><b>Created:</b> {dateFormater(created)}</p>
-                    <a className="planet__body--link" href={url}><b>Planet Page</b></a>
+                    <p className="planet__body--data"><b>Gravity: </b> {gravity === "unknown" ? "No Data" : gravity}</p>
+                    <p className="planet__body--data"><b>Created: </b> {dateFormater(created)}</p>
+                    <a className="planet__body--link" href={url}><b> Planet Page</b></a>
                 </div>
             </li>
         </>
