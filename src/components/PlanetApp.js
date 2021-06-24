@@ -1,9 +1,9 @@
-
 import { useEffect, useState, createContext } from "react";
 import { PaginationButton } from "./Button";
 import { Header } from "./Header";
 import { Loading } from "./Loading";
 import { PlanetList } from "./PlanetList";
+import { SearchBar } from "./SearchBar";
 export const PlanetsContext = createContext()
 export const PlanetApp = () => {
     const APILINK = "https://swapi.dev/api/planets/"
@@ -50,6 +50,7 @@ export const PlanetApp = () => {
     return <>
         <PlanetsContext.Provider value={{ currentData, setCurrentData, immutablePlanets, setImmutablePlanets }}>
             <Header />
+            <SearchBar />
             <PlanetList />
             <div className="pagination__wrapper">
             {isPreviousPageAvalible && <PaginationButton func={getPlanetsData} link={currentData.previous} text={"Previous"} ></PaginationButton >}
