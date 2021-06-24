@@ -7,6 +7,14 @@
 .loading__text {
     font-size: 40px;
 }
-#loading__icon{
-    
+.error__container {
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.error__message {
+    font-size: 48px;
+    color : red;
 }

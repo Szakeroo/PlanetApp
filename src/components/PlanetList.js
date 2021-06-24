@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { PlanetsContext } from "./PlanetApp";
 import { Planet } from "./Planet";
 export const PlanetList = () => {
-    const { currentData, setCurrentData, immutablePlanets, setImmutablePlanets } = useContext(PlanetsContext);
+    const { currentData} = useContext(PlanetsContext);
 
     return (
         <ul className="planets">
