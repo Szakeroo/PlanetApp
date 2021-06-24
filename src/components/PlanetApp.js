@@ -36,6 +36,7 @@ export const PlanetApp = () => {
                     setCurrentData(fetchedData)
                     setImmutableData(fetchedData)
                     setLoading(false)
+                    setIsError(false)
                 } catch (error) {
                     alert(error);
                 }
