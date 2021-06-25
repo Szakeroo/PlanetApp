@@ -16,18 +16,23 @@
   text-decoration: none;
   margin-right: 30px;
   text-align: center;
+  color:black;
 }
+
 .planet__container {
   width: 100%;
 }
 .planet__container{
     &:nth-child(odd){
-        background-color: $first-blue-color;
+        background-color: white;
     }
     &:nth-child(even) {
-        background-color: $second-blue-color;
+        background-color: lightgray;
     }
-    
+}
+.wrapper {
+  border: 5px solid #f2f2ed;
+  border-radius: 20px;
 }
 @media (max-width: 1000px) {
   .planet__container{
@@ -35,4 +40,8 @@
     flex-direction: column;
     width: 100%;
   }
+}
+.app__wrapper {
+  background: linear-gradient(90deg, #a8adad 34%, rgba(46, 47, 48, 0.675508) 57%);
+  height: 100vh
 }

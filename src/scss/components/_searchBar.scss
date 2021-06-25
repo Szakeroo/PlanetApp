@@ -1,13 +1,14 @@
 .searchbar__container{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     height: 100px;
     align-items: center;
-    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,12,253,1) 0%, rgba(255,241,53,1) 90% );
+    background-color: lightgray;
+    // border-radius: 20px;
 }
 .searchbar__logo {
     height: 80px;
     width: 80px;
-    // margin-left: 50px;
+    
 }

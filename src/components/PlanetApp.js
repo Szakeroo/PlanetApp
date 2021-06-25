@@ -6,7 +6,9 @@ import { MissingPlanet } from "./MissingPlanet";
 import { PlanetList } from "./PlanetList";
 import { SearchBar } from "./SearchBar";
 export const PlanetsContext = createContext()
+
 export const PlanetApp = () => {
+    
     const APILINK = "https://swapi.dev/api/planets/"
     const [currentData, setCurrentData] = useState({
         next: null,
@@ -20,8 +22,8 @@ export const PlanetApp = () => {
     })
     const isPreviousPageAvalible = currentData.previous
     const isNextPageAvalible = currentData.next
-    const [isLoading,setIsLoading] = useState(true)
-    const [isError,setIsError] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
+    const [isError, setIsError] = useState(false)
     const setPlanetsData = (link) => {
         fetch(link)
             .then(async response => {
@@ -48,7 +50,7 @@ export const PlanetApp = () => {
         let compared = 0;
         if (firstPlanetName > secondPlanetName) {
             compared = 1;
-        } else if (firstPlanetName < secondPlanetName){
+        } else if (firstPlanetName < secondPlanetName) {
             compared = -1;
         }
         return compared;
@@ -57,21 +59,25 @@ export const PlanetApp = () => {
         setPlanetsData(APILINK);
     }, [])
     return <>
-        <PlanetsContext.Provider value={{ currentData, setCurrentData, immutableData, setImmutableData,isError,setIsError}}>
-            <Header />
-            
-            {isLoading ? <Loading/> :
-            <>
-            <SearchBar />
-            {isError && <MissingPlanet/>}
-            <PlanetList />
-            <div className="pagination__wrapper">
-            {isPreviousPageAvalible && <PaginationButton func={setPlanetsData} link={currentData.previous} text={"Previous"} ></PaginationButton >}
-            {isNextPageAvalible && <PaginationButton func={setPlanetsData} link={currentData.next} text={"Next"} ></PaginationButton >}
+            <div className="app__wrapper">
+            <PlanetsContext.Provider value={{ currentData, setCurrentData, immutableData, setImmutableData, isError, setIsError }}>
+                <Header />
+
+                {isLoading ? <Loading /> :
+                    <>
+                        <div className="wrapper">
+                            <SearchBar />
+                            {isError && <MissingPlanet />}
+                            <PlanetList />
+                            <div className="pagination__wrapper">
+                                {isPreviousPageAvalible && <PaginationButton func={setPlanetsData} link={currentData.previous} text={"Previous"} ></PaginationButton >}
+                                {isNextPageAvalible && <PaginationButton func={setPlanetsData} link={currentData.next} text={"Next"} ></PaginationButton >}
+                            </div>
+                        </div>
+                    </>}
+
+            </PlanetsContext.Provider>
             </div>
-            </> }
-            
-        </PlanetsContext.Provider>
     </>
 };
 

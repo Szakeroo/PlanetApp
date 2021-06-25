@@ -1,6 +1,5 @@
 import TextField from '@material-ui/core/TextField';
 import React, { useContext, useEffect, useState } from "react";
-import milkway from "../assets/milkway.svg"
 import { PlanetsContext } from "./PlanetApp";
 export const SearchBar = () => {
     const {setCurrentData, immutableData,setIsError,currentData} = useContext(PlanetsContext);
@@ -33,8 +32,8 @@ export const SearchBar = () => {
 
     return (
         <div className="searchbar__container">
-            <img className="searchbar__logo" src={milkway}/>
-            <TextField  onChange={handleSearchInput} id="searchbar__input" label="Search by name" variant="outlined" style={{marginRight: "25px"}}/>
+            {/* <img className="searchbar__logo" src={milkway}/> */}
+            <TextField  onChange={handleSearchInput} id="searchbar__input" label="Search by name" variant="outlined" style={{marginRight: "25px",color:'white'}}/>
         </div>
     )
 }

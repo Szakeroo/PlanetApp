@@ -2,16 +2,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("./../../assets/space.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background: rgb(168,173,173);
+  background: linear-gradient(90deg, rgba(168,173,173,1) 34%, rgba(46,47,48,0.6755077030812324) 57%);
+  
   height: 200px;
   padding: 0 20px;
 }
 .header__text {
   font-size: 3em;
   color: #fff;
-  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18, 0 0 30px #49ff18, 0 0 40px #49ff18, 0 0 55px #49ff18, 0 0 75px #49ff18
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff,
 }
 .header__logo {
   width: 50px;
