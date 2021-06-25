@@ -1,4 +1,4 @@
-import CircularProgress from '@material-ui/core/CircularProgress'
+import CircularProgress from '@material-ui/core/CircularProgress';
 export const Loading = () => {
     return (
         <>
@@ -8,4 +8,4 @@ export const Loading = () => {
             </div>
         </>
     )
-}
+};

@@ -5,7 +5,7 @@ import { Loading } from "./Loading";
 import { MissingPlanet } from "./MissingPlanet";
 import { PlanetList } from "./PlanetList";
 import { SearchBar } from "./SearchBar";
-export const PlanetsContext = createContext()
+export const PlanetsContext = createContext();
 
 export const PlanetApp = () => {
     
@@ -14,36 +14,36 @@ export const PlanetApp = () => {
         next: null,
         previous: null,
         planets: []
-    })
+    });
     const [immutableData, setImmutableData] = useState({
         next: null,
         previous: null,
         planets: []
-    })
-    const isPreviousPageAvalible = currentData.previous
-    const isNextPageAvalible = currentData.next
-    const [isLoading, setIsLoading] = useState(true)
-    const [isError, setIsError] = useState(false)
+    });
+    const isPreviousPageAvalible = currentData.previous;
+    const isNextPageAvalible = currentData.next;
+    const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(false);
     const setPlanetsData = (link) => {
         fetch(link)
             .then(async response => {
                 try {
                     const data = await response.json();
-                    const { next, previous, results } = data
+                    const { next, previous, results } = data;
                     const fetchedData = {
                         next: next,
                         previous: previous,
                         planets: results.sort(sortPlanetByName)
-                    }
-                    setCurrentData(fetchedData)
-                    setImmutableData(fetchedData)
-                    setIsLoading(false)
-                    setIsError(false)
+                    };
+                    setCurrentData(fetchedData);
+                    setImmutableData(fetchedData);
+                    setIsLoading(false);
+                    setIsError(false);
                 } catch (error) {
                     alert(error);
                 }
             })
-    }
+    };
     const sortPlanetByName = (planet1, planet2) => {
         const firstPlanetName = planet1.name.toLowerCase();
         const secondPlanetName = planet2.name.toLowerCase();
@@ -57,7 +57,7 @@ export const PlanetApp = () => {
     }
     useEffect(() => {
         setPlanetsData(APILINK);
-    }, [])
+    }, []);
     return <>
             <div className="app__wrapper">
             <PlanetsContext.Provider value={{ currentData, setCurrentData, immutableData, setImmutableData, isError, setIsError }}>

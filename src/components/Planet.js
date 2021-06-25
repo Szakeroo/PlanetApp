@@ -5,13 +5,13 @@ export const Planet = ({ name, rotation, climate, gravity, created, url }) => {
         return validDate
     }
     const capitalizeData = (data) => {
-        if (typeof data !== "string") throw new Error("Tylko string")
+        if (typeof data !== "string") throw new Error("Tylko string");
         // const letterRegExp = /^[A-Za-z]+$/
         // const isWordALetter = letterRegExp.test(word)
         // if(!isWordALetter) throw new Error ("Tekst musi zawierać tylko litery") zostawiłem aby pokazać ze potrafie korzystąć z regexpa
-        const words = data.split(", ")
-        const capitalizedWords = words.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        return capitalizedWords.join(", ")
+        const words = data.split(", ");
+        const capitalizedWords = words.map((word) => word.charAt(0).toUpperCase() + word.slice(1));
+        return capitalizedWords.join(", ");
     }
     return (
         <>
@@ -29,4 +29,4 @@ export const Planet = ({ name, rotation, climate, gravity, created, url }) => {
             </li>
         </>
     )
-}
+};

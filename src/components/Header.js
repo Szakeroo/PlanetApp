@@ -1,4 +1,4 @@
-import logo from "../assets/planet.svg"
+import logo from "../assets/planet.svg";
 export const Header = () => {
     return(
         <div className="header">

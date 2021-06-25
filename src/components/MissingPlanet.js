@@ -5,4 +5,4 @@ export const MissingPlanet = () => {
             <h2 className="error__message">There is no such a planet</h2>
         </div>
     )
-}
+};

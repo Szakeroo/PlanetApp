@@ -2,7 +2,7 @@ import TextField from '@material-ui/core/TextField';
 import React, { useContext, useEffect, useState } from "react";
 import { PlanetsContext } from "./PlanetApp";
 export const SearchBar = () => {
-    const {setCurrentData, immutableData,setIsError,currentData} = useContext(PlanetsContext);
+    const { setCurrentData, immutableData, setIsError, currentData } = useContext(PlanetsContext);
     const [searchParam, setSearchParam] = useState("");
 
     const handleSearchInput = (event) => {
@@ -24,16 +24,16 @@ export const SearchBar = () => {
     //         previous: immutableData.previous,
     //         planets: filterData(immutableData.planets, searchParam)
     //     })
-    // }, [searchParam,currentData]);
+    // }, [searchParam,currentData]); tutaj sie wywala filtrowanie po nowo pobranej liście 
+    // wyłączyć to mozna usuwając currentData z dependiencji , ale wtedy utracimy filter na odrazu pobranej tablicy.
     useEffect(() => {
-        setCurrentData(prevState => ({...prevState,planets: filterData(immutableData.planets, searchParam)}));
+        setCurrentData(prevState => ({ ...prevState, planets: filterData(immutableData.planets, searchParam) }));
     }, [searchParam]);
 
 
     return (
         <div className="searchbar__container">
-            {/* <img className="searchbar__logo" src={milkway}/> */}
-            <TextField  onChange={handleSearchInput} id="searchbar__input" label="Search by name" variant="outlined" style={{marginRight: "25px",color:'white'}}/>
+            <TextField onChange={handleSearchInput} id="searchbar__input" label="Search by name" variant="outlined" style={{ marginRight: "25px", color: 'white' }} />
         </div>
     )
 }
