@@ -20,9 +20,9 @@ export const PlanetApp = () => {
     })
     const isPreviousPageAvalible = currentData.previous
     const isNextPageAvalible = currentData.next
-    const [loading,setLoading] = useState(true)
+    const [isLoading,setIsLoading] = useState(true)
     const [isError,setIsError] = useState(false)
-    const getPlanetsData = (link) => {
+    const setPlanetsData = (link) => {
         fetch(link)
             .then(async response => {
                 try {
@@ -35,7 +35,7 @@ export const PlanetApp = () => {
                     }
                     setCurrentData(fetchedData)
                     setImmutableData(fetchedData)
-                    setLoading(false)
+                    setIsLoading(false)
                     setIsError(false)
                 } catch (error) {
                     alert(error);
@@ -54,20 +54,20 @@ export const PlanetApp = () => {
         return compared;
     }
     useEffect(() => {
-        getPlanetsData(APILINK);
+        setPlanetsData(APILINK);
     }, [])
     return <>
         <PlanetsContext.Provider value={{ currentData, setCurrentData, immutableData, setImmutableData,isError,setIsError}}>
             <Header />
             
-            {loading ? <Loading/> :
+            {isLoading ? <Loading/> :
             <>
             <SearchBar />
             {isError && <MissingPlanet/>}
             <PlanetList />
             <div className="pagination__wrapper">
-            {isPreviousPageAvalible && <PaginationButton func={getPlanetsData} link={currentData.previous} text={"Previous"} ></PaginationButton >}
-            {isNextPageAvalible && <PaginationButton func={getPlanetsData} link={currentData.next} text={"Next"} ></PaginationButton >}
+            {isPreviousPageAvalible && <PaginationButton func={setPlanetsData} link={currentData.previous} text={"Previous"} ></PaginationButton >}
+            {isNextPageAvalible && <PaginationButton func={setPlanetsData} link={currentData.next} text={"Next"} ></PaginationButton >}
             </div>
             </> }
             
