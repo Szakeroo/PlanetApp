@@ -34,14 +34,36 @@
   border: 5px solid #f2f2ed;
   border-radius: 20px;
 }
+.app__wrapper {
+  background: linear-gradient(90deg, #a8adad 34%, rgba(46, 47, 48, 0.675508) 57%);
+  height: 100vh
+}
+
 @media (max-width: 1000px) {
   .planet__container{
     display: flex;
     flex-direction: column;
     width: 100%;
   }
-}
-.app__wrapper {
-  background: linear-gradient(90deg, #a8adad 34%, rgba(46, 47, 48, 0.675508) 57%);
-  height: 100vh
+  .app__wrapper {
+    height: 100%;
+  }
+  .planet__body {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .planet__body--data {
+    margin: 0;
+    width: 33%;
+    text-align: center;
+    flex-shrink: 1;
+  }
+  .planet__body--link {
+    margin: 0;
+    width: 33%;
+    text-align: left;
+    flex-shrink: 1;
+    align-self: center;
+  }
 }
